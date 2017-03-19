@@ -8,6 +8,8 @@
    - create table and load date with: source /Users/MF/Desktop/data-science-side-projects/mpg_project/creatempgtable.mysql; (from within mysql session, could also do from shell)
    - SELECT * FROM mpg_table to see the whole table, and DESCRIBE mpg_table to see fields
  
+* Data analysis and visualization in the following steps to be placed in mpg_analysis.R
+
 3. Import table into R
    - use libraries dplyr and RMySQL with RStudio
    -  db <- dbConnect(MySQL(), dbname = "mpg_db", host = "localhost", default.file = "~/.my.cnf", user = NULL, password = NULL)

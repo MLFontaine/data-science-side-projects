@@ -1,0 +1,44 @@
+1. Prepare data for mySQL
+   - clean up in Google spreadsheets by reformatting dates for mySQL date format: xx/xx/xxxx to xxxx-xx-xx
+   - export google spreadsheet to comma delimited csv file
+
+2. Import data to new mysql table
+   - login to mysql on command line
+   - USE mpg_db;
+   - create table and load date with: source /Users/MF/Desktop/mpg_project/creatempgtable.mysql; (from within mysql session, could also do from shell)
+   - SELECT * FROM mpg_table to see the whole table, and DESCRIBE mpg_table to see fields
+ 
+3. Import table into R
+   - use libraries dplyr and RMySQL with RStudio
+   -  db <- dbConnect(MySQL(), dbname = "mpg_db", host = "localhost", default.file = "~/.my.cnf", user = NULL, password = NULL)
+   - mpgs <- dbGetQuery(db, "SELECT * FROM mpg_table")
+   
+   - Alternative steps, loads data in different type
+   - db <- src_mysql("mpg_db", default.file = "~/.my.cnf", user = NULL, password = NULL)   (default file has username and password)
+   - mpgs <- tbl(db, "mpg_table")
+   - collect(mpgs) (brings in whole table)
+   
+ 4. Data Analysis in R
+    - use library ggplot2
+    - g <- ggplot(data = mpgs, aes(y = mpg, x = thedate))
+    - g + geom_point(size = 3) these two commands plot out mpg over date
+    
+    - h <- ggplot(data = mpgs, aes(y = mpg, x = mpd))
+    - h + geom_point(size = 3)
+    
+    
+    -do linear regressions
+    -costco gas prices over time
+    -calculate means, standard deviations, number of visits to each station
+    -costco gas savings
+    -stick into markdown or something similar
+    -difference after new tires
+    -no difference after tune up
+    -test out clustering to detect tires, or hwy style
+    -import air temp from wunderground if possible
+    -figure out git
+    
+    
+    
+    
+    

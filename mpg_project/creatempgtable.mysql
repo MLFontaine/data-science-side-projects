@@ -4,4 +4,4 @@ DROP TABLE IF EXISTS `mpg_table`;
 
 CREATE TABLE `mpg_table` ( thedate DATE, days smallint, odometer mediumint, miles decimal(4,1), gallons decimal(5,2), cost decimal(4,2), costpergal decimal(4,2),  station varchar(255), style varchar(255), mpg float(8,5), mpdol float(8,5), dolpm float(8,5), mpd float(8,5), gpd float(8,5), dolpd float(8,5));
 
-LOAD DATA LOCAL INFILE '/Users/MF/Desktop/mpg_project/gas_data.csv' INTO TABLE mpg_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/Users/MF/Desktop/data-science-side-projects/mpg_project/gas_data.csv' INTO TABLE mpg_table FIELDS TERMINATED BY ',' IGNORE 1 LINES;

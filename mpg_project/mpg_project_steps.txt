@@ -5,7 +5,7 @@
 2. Import data to new mysql table
    - login to mysql on command line
    - USE mpg_db;
-   - create table and load date with: source /Users/MF/Desktop/mpg_project/creatempgtable.mysql; (from within mysql session, could also do from shell)
+   - create table and load date with: source /Users/MF/Desktop/data-science-side-projects/mpg_project/creatempgtable.mysql; (from within mysql session, could also do from shell)
    - SELECT * FROM mpg_table to see the whole table, and DESCRIBE mpg_table to see fields
  
 3. Import table into R
@@ -36,7 +36,6 @@
     -no difference after tune up
     -test out clustering to detect tires, or hwy style
     -import air temp from wunderground if possible
-    -figure out git
     
     
     

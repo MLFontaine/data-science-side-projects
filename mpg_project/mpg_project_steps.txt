@@ -38,7 +38,7 @@
     -no difference after tune up
     -test out clustering to detect tires, or hwy style
     -import air temp from wunderground if possible
-    
+    -compare to an mpg database in R?
     
     
     

@@ -16,9 +16,9 @@ ggplot(mpgs, aes(x=mpd, y=mpg)) +
   geom_smooth(method=lm, se=FALSE) #find slop of fitted line
 
 mean(mpgs[["mpg"]])
-sum(mpgs[["gallons"]])
-sum(mpgs[["cost"]])
+sum(mpgs[["gallons"]]) #total number of gallons
+sum(mpgs[["cost"]]) #total amount spent
 
-sum(mpgs[["miles"]])/sum(mpgs[["gallons"]])
+sum(mpgs[["miles"]])/sum(mpgs[["gallons"]]) #overall mpg, different than average of mpgs
 
 

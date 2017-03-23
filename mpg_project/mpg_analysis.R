@@ -22,3 +22,10 @@ sum(mpgs[["cost"]]) #total amount spent
 sum(mpgs[["miles"]])/sum(mpgs[["gallons"]]) #overall mpg, different than average of mpgs
 
 
+fit<-lm(mpgs[["mpg"]]~mpgs[["mpd"]]) #line fit
+fit # prints intrcept and slope
+
+residuals(fit) #get residuals
+
+summary(fit) #lots of info
+

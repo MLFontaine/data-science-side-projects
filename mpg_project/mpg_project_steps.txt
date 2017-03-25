@@ -20,13 +20,13 @@
    - mpgs <- tbl(db, "mpg_table")
    - collect(mpgs) (brings in whole table)
    
- 4. Data Analysis in R
-    - use library ggplot2
-    - g <- ggplot(data = mpgs, aes(y = mpg, x = thedate))
-    - g + geom_point(size = 3) these two commands plot out mpg over date
+4. Data Analysis in R
+   - use library ggplot2
+   - g <- ggplot(data = mpgs, aes(y = mpg, x = thedate))
+   - g + geom_point(size = 3) these two commands plot out mpg over date
     
-    - h <- ggplot(data = mpgs, aes(y = mpg, x = mpd))
-    - h + geom_point(size = 3)
+   - h <- ggplot(data = mpgs, aes(y = mpg, x = mpd))
+   - h + geom_point(size = 3)
     
     
     -do linear regressions
@@ -39,7 +39,22 @@
     -test out clustering to detect tires, or hwy style
     -import air temp from wunderground if possible
     -compare to an mpg database in R?
+
+* Data analysis and visualization in the following steps to be placed in mpg_analysis2.py
+
+5. Import table into Python
+   - See http://zetcode.com/db/mysqlpython/. Python packages kind of a mess to get installed...  
+
+
+6. Data analysis in Python
+   -
     
+
+~To open .my.cnf:
+open -a TextEdit .my.cnf
     
-    
+~echo $PATH. edit with, open .bash_profile
+
+export PATH=$PATH:/usr/local/mysql/bin
+
     

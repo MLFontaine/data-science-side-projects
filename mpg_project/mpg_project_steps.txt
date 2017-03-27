@@ -44,10 +44,11 @@
 
 5. Import table into Python
    - See http://zetcode.com/db/mysqlpython/. Python packages kind of a mess to get installed...  
+   - also see http://mysql-python.sourceforge.net/MySQLdb.html
 
 
 6. Data analysis in Python
-   -
+   - run python mpg_analysis2.py from shell, or inside python execfile(‘mpg_analysis2.py’), or using python -i mpg_analysis2.py from shell to go into interactive mode after loading
     
 
 ~To open .my.cnf:

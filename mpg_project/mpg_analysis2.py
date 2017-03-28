@@ -5,6 +5,7 @@ import sys
 import pandas as pd
 import pandas.io.sql
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 
@@ -23,8 +24,8 @@ mpgs=pd.DataFrame(gas_data, columns=['mpg']) #mpg column, or just gas_data['mpg'
 
 print(np.mean(mpgs))
 
-ts = pd.Series(gas_data['mpg'], index=gas_data['thedate'])
-ts = ts.cumsum()
+plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg'])
+
 plt.show()
 
 

@@ -5,7 +5,10 @@ import sys
 import pandas as pd
 import pandas.io.sql
 import numpy as np
+from numpy import log
 import statsmodels.api as sm
+import statsmodels.formula.api as smf
+from sklearn import linear_model
 import matplotlib
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
@@ -15,9 +18,9 @@ plt.style.use('ggplot')
 
 con = mdb.connect(host='localhost', db='mpg_db', read_default_file='~/.my.cnf')
 
-
-
 gas_data = pandas.read_sql("SELECT * FROM mpg_table", con)
+
+con.close()
 
 print(type(gas_data)) #shows type as pandas dataframe
 
@@ -25,21 +28,42 @@ mpgs=pd.DataFrame(gas_data, columns=['mpg']) #mpg column, or just gas_data['mpg'
 
 print(np.mean(mpgs))
 
-#plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg'])
+#plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg']) #time-mpg
 
-plt.scatter(gas_data['mpd'], gas_data['mpg'])
+##plt.scatter(gas_data['mpd'], gas_data['mpg']) #mpd-mpg
 
-plt.show()
+##plt.show()
 
 #linear regression
 mpg_data = gas_data['mpg']
 mpd_data = gas_data['mpd']
-mpd = sm.add_constant(mpd_data)
+mpd_data = sm.add_constant(mpd_data)
 regression1 = sm.OLS(mpg_data, mpd_data).fit()
-
 print(regression1.summary())
 
+#alternative regression calculation
+regression2 = smf.ols(formula = 'mpg ~ mpd', data = gas_data).fit()
+print(regression2.summary())
 
+#print(regression2.params) #gives coefficients
+
+#3rd linear regression from scikit-learn
+mpg_data2 = gas_data[['mpg']]
+mpd_data2 = gas_data[['mpd']]
+sk_regr = linear_model.LinearRegression()
+sk_regr.fit(mpd_data2, mpg_data2)
+print(sk_regr.coef_)
+print(sk_regr.intercept_)
+print(sk_regr.score(mpd_data2, mpg_data2))
+
+#log transformation
+gas_data['log_mpd'] = log(gas_data['mpd'])
+gas_data['log_mpg'] = log(gas_data['mpg'])
+
+plt.scatter(gas_data['log_mpd'], gas_data['log_mpg'])
+plt.show()
+
+print('end')
 
 
 #visualization example, http://pandas.pydata.org/pandas-docs/stable/visualization.html

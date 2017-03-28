@@ -30,7 +30,7 @@ print(np.mean(mpgs))
 
 #plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg']) #time-mpg
 
-##plt.scatter(gas_data['mpd'], gas_data['mpg']) #mpd-mpg
+plt.scatter(gas_data['mpd'], gas_data['mpg']) #mpd-mpg
 
 ##plt.show()
 
@@ -56,11 +56,16 @@ print(sk_regr.coef_)
 print(sk_regr.intercept_)
 print(sk_regr.score(mpd_data2, mpg_data2))
 
-#log transformation
+#log transformation, gived worse R^2
 gas_data['log_mpd'] = log(gas_data['mpd'])
 gas_data['log_mpg'] = log(gas_data['mpg'])
 
-plt.scatter(gas_data['log_mpd'], gas_data['log_mpg'])
+log_lm = smf.ols(formula = 'log_mpg ~ log_mpd', data = gas_data).fit()
+
+print(log_lm.summary())
+
+
+##plt.scatter(gas_data['log_mpd'], gas_data['log_mpg'])
 plt.show()
 
 print('end')

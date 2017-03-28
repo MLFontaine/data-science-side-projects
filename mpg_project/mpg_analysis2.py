@@ -5,6 +5,7 @@ import sys
 import pandas as pd
 import pandas.io.sql
 import numpy as np
+import statsmodels.api as sm
 import matplotlib
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
@@ -24,9 +25,19 @@ mpgs=pd.DataFrame(gas_data, columns=['mpg']) #mpg column, or just gas_data['mpg'
 
 print(np.mean(mpgs))
 
-plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg'])
+#plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg'])
+
+plt.scatter(gas_data['mpd'], gas_data['mpg'])
 
 plt.show()
+
+#linear regression
+mpg_data = gas_data['mpg']
+mpd_data = gas_data['mpd']
+mpd = sm.add_constant(mpd_data)
+regression1 = sm.OLS(mpg_data, mpd_data).fit()
+
+print(regression1.summary())
 
 
 

@@ -28,11 +28,14 @@ mpgs=pd.DataFrame(gas_data, columns=['mpg']) #mpg column, or just gas_data['mpg'
 
 print(np.mean(mpgs))
 
-#plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg']) #time-mpg
+dateplot = plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg'], '-') #time-mpg
+plt.ylabel('miles per gallon')
+plt.show(dateplot)
 
-plt.scatter(gas_data['mpd'], gas_data['mpg']) #mpd-mpg
-
-##plt.show()
+mpdmpgplot = plt.scatter(gas_data['mpd'], gas_data['mpg']) #mpd-mpg
+plt.ylabel('miles per gallon')
+plt.xlabel('miles per day')
+plt.show(mpdmpgplot)
 
 #linear regression
 mpg_data = gas_data['mpg']
@@ -66,7 +69,7 @@ print(log_lm.summary())
 
 
 ##plt.scatter(gas_data['log_mpd'], gas_data['log_mpg'])
-plt.show()
+#plt.show()
 
 print('end')
 

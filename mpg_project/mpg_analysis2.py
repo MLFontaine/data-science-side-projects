@@ -29,6 +29,7 @@ mpgs=pd.DataFrame(gas_data, columns=['mpg']) #mpg column, or just gas_data['mpg'
 print(np.mean(mpgs))
 
 dateplot = plt.plot_date(matplotlib.dates.date2num(gas_data['thedate']), gas_data['mpg'], '-') #time-mpg
+plt.title('MpG History')
 plt.ylabel('miles per gallon')
 plt.show(dateplot)
 

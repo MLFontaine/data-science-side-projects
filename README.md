@@ -1,5 +1,5 @@
 # data-science-side-projects
-Independent projects for data science
+Independent projects on data science
 
 - mpg_projects: data analysis and visualization for personally collected data about gas fillups for my car
 

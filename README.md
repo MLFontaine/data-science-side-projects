@@ -1,6 +1,6 @@
 # data-science-side-projects
-Independent projects to prepare for data science
+Independent projects for data science
 
-- mpg_projects: contains personally collected data about gas fillups for my car
+- mpg_projects: data analysis and visualization for personally collected data about gas fillups for my car
 
-- yelp_project: to work with data provided by yelp
+- movielens_project: data analysis, visualization, and machine learning algorithms for MovieLens data

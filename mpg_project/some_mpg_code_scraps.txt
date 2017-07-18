@@ -1,0 +1,24 @@
+Do holdout (rather than k-fold [it's 1-fold?]) cross validation by partitioning the data set for the new tires. See page 254 Section 6.6.2.
+
+Other different idea: Maybe find clusters in city driving (exclude high mpd) and see if they correspond to a date range.
+
+
+# http://scikit-learn.org/stable/modules/cross_validation.html
+
+#just apply a function for the MSE or something to these two series?
+# http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html
+
+
+#maybe do this k-fold one multiple training sets... and hopefully we can get some kind of visualization?
+#returns a loss... generally we're trying to minimize the loss
+# https://stats.stackexchange.com/questions/58391/mean-absolute-percentage-error-mape-in-scikit-learn
+# https://stats.stackexchange.com/questions/47913/pandas-statsmodel-scikit-learn?rq=1
+# http://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics
+
+
+from sklearn.neighbors import KNeighborsClassifier, NearestNeighbors
+X_train = np.array(zip(train.mpd.values, train.mpg.values))
+X_test = np.array(zip(test.mpd.values, test.mpg.values))
+knn = NearestNeighbors(n_neighbors=3, algorithm='ball_tree').fit(X_train)
+distances, indices = knn.kneighbors(X_test)
+print distances
